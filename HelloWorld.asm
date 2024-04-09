@@ -9,21 +9,21 @@ extern _ExitProcess@4
 global Start
 
 section .data
-    HelloWorldMessage db "Hello World!", 0Dh, 0Ah
+    HelloWorldMessage DB "Hello World!", 0Dh, 0Ah
     HelloWorldMessageLength EQU $-HelloWorldMessage
 
-    TwoTimesTwoEqualsFourMessage db "2 x 2 = 4", 0Dh, 0Ah
+    TwoTimesTwoEqualsFourMessage DB "2 x 2 = 4", 0Dh, 0Ah
     TwoTimesTwoEqualsFourMessageLength EQU $-TwoTimesTwoEqualsFourMessage
 
 section .bss
-    StandartHandle resd 1
-    Written resd 1
+    StandartHandle RESD 1
+    Written RESD 1
 
 section .text
     Start:
         push DWORD STD_OUTPUT_HANDLE
         call _GetStdHandle@4
-        mov dword [StandartHandle], EAX
+        mov DWORD [StandartHandle], EAX
 
         push 1000
         call _Sleep@4
